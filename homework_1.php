@@ -35,6 +35,8 @@ $goods = [
 $get = $_GET;
 $id = $get['id'];
 $good = $goods[$id-1];
+
+// $good['id']
 ?>
 
 <!DOCTYPE html>
@@ -46,19 +48,21 @@ $good = $goods[$id-1];
   </head>
   <body>
     <section>
+      <?php if ($good): ?>
+        <h2><?php echo $good['title'] ?></h2>
+        <table border >
+          <tr>
+            <th>Цвет</th><th>Материал</th>
+          </tr><?php foreach ($good['description'] as $descrip): ?>
+            <td><?php echo $descrip ?></td>
+          <?php endforeach; ?>
+        </table>
+        <p>Стоимость:<?php echo $good['price'] ?> руб.</p>
 
-      <h2><?php echo $good['title'] ?></h2>
-      <table border >
-       <tr>
-         <th>Цвет</th><th>Материал</th>
-       </tr><?php foreach ($good['description'] as $descrip): ?>
-         <td><?php echo $descrip ?></td>
-       <?php endforeach; ?>
-      </table>
-      <p>Стоимость:<?php echo $good['price'] ?> руб.</p>
-      <div class="buy">
-        <a href="#">Заказать</a>
-      </div>
+          <a href="#">Заказать</a>
+      <?php else: ?>
+        <h2>Товар не найден!</h2>
+      <?php endif; ?>
     </section>
   </body>
 </html>
