@@ -59,15 +59,16 @@
       <?php foreach ($goods as $good): ?>
         <article>
           <h3>Наименование: <?php echo $good['title'] ?></h3>
-          <p>Цена: <?php echo $good['price']?></p>
+          <!-- <p>Цена: <?php echo $good['price']?></p> -->
           <img src="./items/<?php echo $good['img'] ?>" height="150" width="300">
-          <table border >
+          <a href="homework_1.php?id=<?php echo $good['id'] ?>">Подробнее</a>
+          <!-- <table border >
             <tr>
               <th>Цвет</th><th>Материал</th>
             </tr><?php foreach ($good['description'] as $descrip): ?>
               <td><?php echo $descrip ?></td>
             <?php endforeach; ?>
-          </table>
+          </table> -->
 
         </article>
 
