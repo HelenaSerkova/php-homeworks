@@ -19,8 +19,8 @@ $login = $_SESSION['login'];
       <?php endif; ?>
     </nav>
     <h2>Контент доступен всем пользователям</h2>
-    
-    <!-- <div>Коммент пользователя</div> -->
+
+    <div id="text"></div>
 
     <!-- form: textarea input(submit) -->
     <?php if (isset($login)): ?>
@@ -32,5 +32,6 @@ $login = $_SESSION['login'];
       </form>
     <?php endif; ?>
 
+    <script src="js/ajax.js"></script>
   </body>
 </html>

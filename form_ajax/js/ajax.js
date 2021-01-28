@@ -3,7 +3,7 @@ let form = document.querySelector('form');
 function responseHandler(serverAnswer) {
   let div = document.createElement("div");
   let text = document.getElementById('text');
-  div.innerHTML = '<p>${serverAnswer}</p>';
+  div.innerHTML = `<p>${serverAnswer}</p>`;
   text.append(div);
 
 }
