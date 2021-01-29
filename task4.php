@@ -22,7 +22,7 @@ $categories = [
     ],
     [
         'id' => '4',
-        'parent_category' => '1', //
+        'parent_category' => '1',
         'title' => 'Смартфоны'
     ],
     [
@@ -188,25 +188,60 @@ $categories = [
 
 ];
 
-function find_by_param(array $arr, callable $func){
-  $new_arr = [];
-  foreach ($arr as $value) {
-    if ($func($value)) {
-      $new_arr[] = $value;
+// по ключу children_elems
+$new_arr = [];
+
+function get_tree($arr, &$new_arr, $parent){
+    foreach ($arr as $item) {
+        if ($parent == $item["parent_category"]){
+            $new_arr[] = $item;
+            get_tree($arr, $new_arr[count($new_arr)-1]["children_elems"], $item["id"]); // рекурсия
+        }
     }
-  }
-  return $new_arr;
 }
+
+get_tree($categories, $new_arr, 0);
+
+
+var_dump($new_arr[1]["children_elems"]);
+
+// var_dump ($out);
+
+
+
+
+
+// _________________________________
 
 // foreach ($categories as $category => $value) {
 
 // if (category['parent_category'] === null) {
-//
 //}
 // if (category['parent_category'] === task['id'] ) {
+// }
+// }
+// __________________________________
 //
+// function search($array, $key, $value)
+// {
+//     $results = array();
+//
+//     if (is_array($array)) {
+//         if (isset($array[$key]) && $array[$key] == $value) {
+//             $results[] = $array;
+//         }
+//         foreach ($array as $subarray) {
+//             $results = array_merge($results, search($subarray, $key, $value));
+//         }
+//     }
+//     return $results;
 // }
-// }
+// $arr = array(0 => array(id=>1,name=>"cat_1"),
+//              1 => array(id=>2,name=>"cat_2"),
+//              2 => array(id=>3,name=>"cat_1"));
+//
+// var_dump(search($arr, 'name', 'cat_1'));
+// _________________________________
 
 
  ?>

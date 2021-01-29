@@ -43,9 +43,12 @@ if($server['REQUEST_METHOD'] === 'POST') {
          <div class="">
            <input type="submit" name="" value="Войти">
          </div>
+         <!-- <div id="text">
+
+         </div> -->
 
        </div>
      </form>
-
+     <script src="js/ajax_next.js"></script>
    </body>
  </html>
